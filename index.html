@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indicadores ESGA</title>
+    <style>
+      :root {
+        --bg: #0f172a;
+        --surface: #1e293b;
+        --text: #e2e8f0;
+        --muted: #94a3b8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        background: radial-gradient(circle at top, #1d4ed8 0%, var(--bg) 55%);
+        color: var(--text);
+        display: grid;
+        place-items: center;
+        padding: 24px;
+      }
+
+      .container {
+        width: min(980px, 100%);
+      }
+
+      h1 {
+        font-size: clamp(1.8rem, 2.6vw, 2.6rem);
+        margin-bottom: 8px;
+      }
+
+      p {
+        margin-top: 0;
+        color: var(--muted);
+      }
+
+      .grid {
+        margin-top: 28px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        background: color-mix(in srgb, var(--surface) 88%, white);
+        border: 1px solid rgba(226, 232, 240, 0.14);
+        border-radius: 16px;
+        padding: 18px;
+        box-shadow: 0 12px 22px rgba(15, 23, 42, 0.35);
+      }
+
+      .label {
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+
+      .value {
+        display: block;
+        font-size: 2rem;
+        margin: 10px 0 12px;
+        font-weight: 700;
+      }
+
+      .bar {
+        height: 10px;
+        border-radius: 999px;
+        overflow: hidden;
+        background: rgba(226, 232, 240, 0.18);
+      }
+
+      .fill {
+        height: 100%;
+        width: calc(var(--score) * 1%);
+        border-radius: inherit;
+      }
+
+      .pay .fill { background: linear-gradient(90deg, #22c55e, #16a34a); }
+      .eco .fill { background: linear-gradient(90deg, #14b8a6, #0d9488); }
+      .gov .fill { background: linear-gradient(90deg, #60a5fa, #2563eb); }
+      .acc .fill { background: linear-gradient(90deg, #f59e0b, #ea580c); }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Página de indicadores</h1>
+      <p>Resumen rápido de los indicadores PAY, ECO, GOV y ACC.</p>
+
+      <section class="grid">
+        <article class="card pay" style="--score: 82">
+          <span class="label">PAY</span>
+          <strong class="value">82%</strong>
+          <div class="bar"><div class="fill"></div></div>
+        </article>
+
+        <article class="card eco" style="--score: 76">
+          <span class="label">ECO</span>
+          <strong class="value">76%</strong>
+          <div class="bar"><div class="fill"></div></div>
+        </article>
+
+        <article class="card gov" style="--score: 89">
+          <span class="label">GOV</span>
+          <strong class="value">89%</strong>
+          <div class="bar"><div class="fill"></div></div>
+        </article>
+
+        <article class="card acc" style="--score: 68">
+          <span class="label">ACC</span>
+          <strong class="value">68%</strong>
+          <div class="bar"><div class="fill"></div></div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
